@@ -1,0 +1,416 @@
+:root {
+    --primary-color: #343a40;
+    --secondary-color: #50c878;
+    --background-color: #f5f7fa;
+    --text-color: #333;
+    --card-background: #ffffff;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+main {
+    padding: 2rem 0;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+#home .container {
+    display: flex;
+    gap: 2rem;
+}
+
+.upload-section, .preview-section {
+    flex: 1;
+}
+
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.file-input-wrapper input[type="file"] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-input-wrapper label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.file-input-wrapper:hover label {
+    background-color: #45b06b;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+button:hover {
+    background-color: #3a7bc1;
+}
+
+#image-preview img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.chart-container {
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+.recommendations-container {
+    display: flex;
+    gap: 2rem;
+}
+
+#recommendation-reasons {
+    flex: 1;
+}
+
+#recommendations-list {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.recommendation-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    padding: 1rem;
+    transition: transform var(--transition-speed);
+}
+
+.recommendation-card:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.loading-spinner.hidden {
+    display: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#user-profile {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.profile-info, .bmi-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.bmi-category {
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.bmi-category.underweight {
+    background-color: #FFD700;
+    color: #000;
+}
+
+.bmi-category.normal-weight {
+    background-color: #32CD32;
+    color: #fff;
+}
+
+.bmi-category.overweight {
+    background-color: #FFA500;
+    color: #000;
+}
+
+.bmi-category.obese {
+    background-color: #FF4500;
+    color: #fff;
+}
+
+.confidence {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.analyzing {
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    #home .container {
+        flex-direction: column;
+    }
+
+    .recommendations-container {
+        flex-direction: column;
+    }
+
+    #user-profile {
+        flex-direction: column;
+    }
+
+    .profile-info, .bmi-info {
+        width: 100%;
+    }
+}
+
+/* Calorie Tracker Styles */
+#calorie-tracker {
+    padding: 2rem 0;
+}
+
+#calendar {
+    margin-bottom: 2rem;
+}
+
+#calorie-summary {
+    margin-bottom: 2rem;
+}
+
+#calorie-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+#macronutrients-chart {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#meal-list, #exercise-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.meal-item, .exercise-item {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Meal Plan Styles */
+#meal-plan {
+    padding: 2rem 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.week-header {
+    margin-bottom: 1rem;
+}
+
+#day-selector {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.day-btn {
+    background-color: var(--card-background);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.day-btn:hover, .day-btn.active {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.meal-plan-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    padding: 1rem;
+}
+
+.meal-plan-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1rem;
+}
+
+.meal-info h3 {
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+.btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #45b06b;
+}
