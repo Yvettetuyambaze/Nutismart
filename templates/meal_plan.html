@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Plan - RwandanFoodAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header, .week-header, #day-selector, #meal-plan-content {
+            margin-bottom: 2rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .btn {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .week-header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .day-btn {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 1rem;
+        }
+
+        .meal-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .meal-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 1rem;
+        }
+
+        .meal-card h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">RwandanFoodAI</div>
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/calorie-tracker"><i class="fas fa-fire"></i> Calorie Tracker</a></li>
+                <li><a href="/meal-plan"><i class="fas fa-calendar-alt"></i> My Plan</a></li>
+                <li><a href="/profile"><i class="fas fa-user"></i> Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="meal-plan">
+            <div class="container">
+                <div class="header">
+                    <h1>My Plan</h1>
+                    <button id="grocery-list-btn" class="btn">Grocery List</button>
+                </div>
+                
+                <div class="week-header">
+                    <h2>WEEK 1</h2>
+                    <p>Your journey starts with this powerful first step.</p>
+                </div>
+                
+                <div id="day-selector">
+                    <button class="day-btn" data-day="1">Day 1</button>
+                    <button class="day-btn" data-day="2">Day 2</button>
+                    <button class="day-btn" data-day="3">Day 3</button>
+                    <button class="day-btn" data-day="4">Day 4</button>
+                    <button class="day-btn" data-day="5">Day 5</button>
+                    <button class="day-btn" data-day="6">Day 6</button>
+                    <button class="day-btn" data-day="7">Day 7</button>
+                </div>
+                
+                <div id="meal-plan-content">
+                    <!-- Example of meal cards with images -->
+                    <div class="meal-card">
+                        <img src="../RwandanFoodAI/Dataset/Rwandandishies/test/Amaranth Greens (Dodo)/Amaranth Greens (Dodo) (31).jpg" alt="Amaranth Greens">
+                        <div>
+                            <h3>Amaranth Greens (Dodo)</h3>
+                            <p>Calories: 136</p>
+                        </div>
+                    </div>
+                    <div class="meal-card">
+                        <img src="../RwandanFoodAI/Dataset/Rwandandishies/test/Bean Stew (Isosi y'Ibishyimbo)/Bean Stew (Isosi y'Ibishyimbo) (30).jpg" alt="Bean Stew">
+                        <div>
+                            <h3>Bean Stew (Isosi y'Ibishyimbo)</h3>
+                            <p>Calories: 330</p>
+                        </div>
+                    </div>
+                    <div class="meal-card">
+                        <img src="https://example.com/beef_skewer.jpg" alt="Beef Skewer">
+                        <div>
+                            <h3>Beef Skewer (Brochettes-Umushito)</h3>
+                            <p>Calories: 320</p>
+                        </div>
+                    </div>
+                    <!-- Add more meal cards as needed -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 RwandanFoodAI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.day-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const day = this.getAttribute('data-day');
+                // Fetch and display meal plan for the selected day
+            });
+        });
+    </script>
+</body>
+</html>

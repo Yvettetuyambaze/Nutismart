@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RwandanFoodAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">RwandanFoodAI</div>
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/calorie-tracker"><i class="fas fa-fire"></i> Calorie Tracker</a></li>
+                <li><a href="/meal-plan"><i class="fas fa-calendar-alt"></i> My Plan</a></li>
+                <li><a href="#profile"><i class="fas fa-user"></i> Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <div class="card upload-section">
+                    <h1><i class="fas fa-utensils"></i> Analyze Rwandan Dishes</h1>
+                    <p>Upload an image of a Rwandan dish to get nutritional information and personalized recommendations!</p>
+                </br>
+                    <form id="upload-form" enctype="multipart/form-data">
+                        <div class="file-input-wrapper">
+                            <input type="file" name="image" id="image-input" accept="image/*" required>
+                            <label for="image-input"><i class="fas fa-cloud-upload-alt"></i> Choose a file</label>
+                        </div>
+                    </br>
+                        <button type="submit"><i class="fas fa-search"></i> Analyze Dish</button>
+                    </form>
+                </div>
+                <div class="card preview-section">
+                    <h2><i class="fas fa-image"></i> Image Preview</h2>
+                    <div id="image-preview"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results-section">
+            <div class="container">
+                <h2><i class="fas fa-chart-bar"></i> Analysis Results</h2>
+                <div id="results" class="card"></div>
+                <div class="chart-container card">
+                    <canvas id="nutrition-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="profile">
+            <div class="container">
+                <h2><i class="fas fa-user-circle"></i> Your Profile</h2>
+                <div id="user-profile" class="card"></div>
+            </div>
+        </section>
+
+        <section id="recommendations">
+            <div class="container">
+                <h2><i class="fas fa-lightbulb"></i> Personalized Recommendations</h2>
+                <div class="recommendations-container">
+                    <div id="recommendation-reasons" class="card"></div>
+                    <div id="recommendations-list"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 RwandanFoodAI. All rights reserved.</p>
+    </footer>
+
+    <div id="loading-spinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
